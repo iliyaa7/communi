@@ -8,12 +8,31 @@ import { Switch, Route, Redirect } from 'react-router';
 import { useHistory } from "react-router-dom";
 import UserPhoneService from '../../services/usersService'
 import ProtectedRoute from '../ProtectedRout/ProtectedRoute';
+import { createTheme } from '@mui/material';
+import { ThemeProvider } from '@emotion/react';
 
 function App() {
   const [userData, setUserData] = useState({})
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isThemeModeDark, setIsThemeModeDark] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isSubmitedSuccesfuly, setIsSubmitedSuccesfuly] = useState(false);
   const history = useHistory();
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  });
+
+  const lightTheme = createTheme({
+    palette: {
+      mode: 'light',
+    },
+  });
+
+  function handleThemeChange() {
+    setIsThemeModeDark(!isThemeModeDark)
+  }
 
   function handleSubmitLogin(phoneNumber) {
     try{
@@ -38,18 +57,20 @@ function App() {
 
   return (
     <>
+    <ThemeProvider theme={isThemeModeDark ? darkTheme : lightTheme}>
       <Switch>
-        <ProtectedRoute exact path='/' isLoggedIn={isLoggedIn} >
-          <Dashboard/>
-        </ProtectedRoute>
-        <Route path={'/login'}>
-          {
-            isLoggedIn ?
-            <Redirect to="/" /> :
-            <Login handleSubmitLogin={handleSubmitLogin} isSubmitedSuccesfuly={isSubmitedSuccesfuly}/>
-          }
-        </Route>
-      </Switch>
+          <ProtectedRoute exact path='/' isLoggedIn={isLoggedIn} >
+            <Dashboard isThemeModeDark={isThemeModeDark} handleThemeChange={handleThemeChange}/>
+          </ProtectedRoute>
+          <Route path={'/login'}>
+            {
+              isLoggedIn ?
+              <Redirect to="/" /> :
+              <Login handleSubmitLogin={handleSubmitLogin} isSubmitedSuccesfuly={isSubmitedSuccesfuly}/>
+            }
+          </Route>
+        </Switch>
+    </ThemeProvider>
     </>
   );
 }

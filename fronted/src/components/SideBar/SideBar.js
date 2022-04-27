@@ -1,6 +1,7 @@
 // imported side bar from https://codesandbox.io/s/9bbm9?file=/src/Aside.js:0-3067
 // using react-pro-sidebar & react-icons
 import React from "react";
+import { Link } from 'react-router-dom'
 import { useState, useEffect } from "react";
 import {
   ProSidebar,
@@ -23,14 +24,16 @@ import {
 const SideBar = (props, { image, collapsed, rtl, toggled, handleToggleSidebar }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  function handleMenuClick() {
+  function handleMenuClick(index) {
     //change to fetched data instead of true
-    props.handleMenuClick(true)
+    props.handleMenuClick(index)
+    setIsOpen(true)
   }
 
   function handleOpenMenu() {
     setIsOpen(!isOpen)
   }
+
 
 
 
@@ -70,14 +73,14 @@ const SideBar = (props, { image, collapsed, rtl, toggled, handleToggleSidebar })
       <SidebarContent>
         <Menu iconShape="circle">
           <MenuItem
-            onClick={handleMenuClick}
+            onClick={() => handleMenuClick(1)}
             icon={<FaTachometerAlt />}
             // suffix={<span className="badge red">'new'</span>}
           >
             Users
           </MenuItem>
-          <MenuItem  onClick={handleMenuClick} icon={<FaGem />}> Costumers</MenuItem>
-          <MenuItem onClick={handleMenuClick} icon={<FaDelicious />}> Employes</MenuItem>
+            <MenuItem  onClick={() => handleMenuClick(3)} icon={<FaGem />}> Costumers</MenuItem>
+          <MenuItem onClick={() => handleMenuClick(2)} icon={<FaDelicious />}> Employes</MenuItem>
         </Menu>
       </SidebarContent>
 
