@@ -1,6 +1,5 @@
 // import fetchFunction from "./fetchFunction";
 
-
 // class Api {
 //   constructor({ baseUrl }) {
 //     this._baseUrl = baseUrl;
@@ -61,12 +60,9 @@
 //     });
 //   }
 
-
 // }
 // const savedNewsApi = new Api({
 //   baseUrl: "https://api.igfs.online"
 // });
 
 // export default savedNewsApi
-
-

@@ -4,8 +4,13 @@
   background-color: #485461;
   background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
   opacity: 0.8;
+}
+
+.dashboard__header {
+  width: 100%;
+  height: 64px;
 }
 
 .dashboard_type_light {
@@ -15,8 +20,12 @@
 
 .dashboard__container {
   width: 100%;
+  height: calc(100vh - 64px);
   margin: 0;
+  display: flex;
 }
+
+
 
 .dashboard__theme-button {
   width: 40px;
@@ -37,7 +46,5 @@
 }
 
 .dashboard__theme-button:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
-
-

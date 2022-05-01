@@ -1,0 +1,12 @@
+.dashboard__view {
+  width: 80%;
+  height: 400px;
+  margin: 50px auto;
+}
+
+.dashboard__upper-cards {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}

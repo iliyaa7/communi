@@ -1,0 +1,5 @@
+.sidebar {
+  width: 20%;
+  height: calc(100vh - 50px);
+  margin: 0;
+}

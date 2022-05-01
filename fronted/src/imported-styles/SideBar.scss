@@ -1,9 +1,9 @@
 //styles for the imported side bar from react-pro-sidebar
 
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
 $sidebar-bg-color: #1d1d1d;
-$sidebar-width: 270px !default;
+$sidebar-width: 200px !default;
 $submenu-bg-color: rgba(255, 255, 255, 0.05);
 $submenu-bg-color-collapsed: rgba(29, 29, 29, 0.95);
 $sidebar-color: #adadad;
@@ -11,12 +11,10 @@ $highlight-color: #d8d8d8;
 $icon-bg-color: rgba(255, 255, 255, 0.05);
 $icon-size: 35px;
 
-@import '~react-pro-sidebar/dist/scss/styles.scss';
+@import "~react-pro-sidebar/dist/scss/styles.scss";
 body {
-  margin: 0;
-  height: 100vh;
   color: #353535;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 #root {
@@ -116,6 +114,8 @@ body {
       margin: 5px;
     }
   }
+
+
 
   .block {
     display: flex;
